@@ -16,9 +16,15 @@ class PostController extends Controller
     }
     
     public function store(PostRequest $request)
-    {
-        $post = Post::create($request->validated());
-        return response()->json($post, 201);
+    {     
+        try {
+            $post = Post::create($request->validated());
+            return response()->json($post, 201);
+        } catch (\Illuminate\Validation\ValidationException $e) {
+            return response()->json(['errors' => $e->errors()], 422); // Devuelve los errores en formato JSON con código 422 (Unprocessable Entity)
+        }
+        
+       
     }
     
     public function show(Post $post)

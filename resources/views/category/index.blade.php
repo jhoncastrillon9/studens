@@ -5,8 +5,8 @@
 
     <!-- Lista de categorías -->
     <ul>
-        @foreach ($categories as $category)
-            <li>{{ $category->name }}</li>
+        @foreach ($categories as $category)            
+            <li>{{ $category->id }} - {{ $category->name }}</li>
         @endforeach
     </ul>
 @endsection

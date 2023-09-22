@@ -24,13 +24,9 @@ class PostRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required|string',
-            'url_clean' => 'required|string',
-            'content' => 'required|string',
-            'posted' => 'required|boolean',
+            'title' => 'required|min:3|max:220',
+            'content' => 'required|min:3|max:2200',
             'category_id' => 'required|exists:categories,id',
-            'created_id' => 'required|exists:users,id',
-            'updated_id' => 'required|exists:users,id',
         ];
     }
 }
