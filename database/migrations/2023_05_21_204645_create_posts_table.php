@@ -16,6 +16,10 @@ return new class extends Migration
             $table->string('title', 220);
             $table->string('content', 2200);
             $table->integer('category_id');
+            $table->string('user', 2200);
+            $table->integer('likes');
+            $table->string('location', 2200);
+            $table->string('url', 2200);
             $table->timestamps();
 
         });
