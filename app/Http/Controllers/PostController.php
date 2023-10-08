@@ -14,6 +14,16 @@ class PostController extends Controller
         $posts = Post::all();
         return response()->json($posts);
     }
+
+    public function getPostById($id)
+    {
+        try {
+            $post = Post::findOrFail($id);
+            return response()->json($post);
+        } catch (\Exception $e) {
+            return response()->json(['error' => $e->getMessage()], 500);
+        }
+    }
     
     public function store(PostRequest $request)
     {     
